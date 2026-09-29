@@ -1,0 +1,241 @@
+/* Truco Odle — páginas públicas (política e exclusão de conta).
+   Mesmo visual do jogo: feltro verde, madeira, dourado. */
+
+:root {
+  --felt: #0e4d35;
+  --felt-dark: #08301f;
+  --felt-light: #1b7a52;
+  --wood: #4a2e1a;
+  --wood-dark: #24150b;
+  --gold: #f5b700;
+  --gold-deep: #b8860b;
+  --cream: #fff8e7;
+  --muted: #cfe3d6;
+  --red: #e0574f;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--cream);
+  line-height: 1.65;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(27, 122, 82, 0.55), transparent 70%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='%23ffffff' fill-opacity='0.035' font-family='serif' font-size='26'><text x='12' y='36'>♠</text><text x='72' y='36'>♥</text><text x='42' y='84'>♣</text><text x='96' y='102'>♦</text></g></svg>"),
+    linear-gradient(180deg, var(--felt) 0%, var(--felt-dark) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- topo ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(36, 21, 11, 0.92), rgba(36, 21, 11, 0.78));
+  border-bottom: 2px solid var(--gold-deep);
+}
+
+.topbar .inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.brand img { width: 38px; height: 38px; border-radius: 10px; box-shadow: 0 0 12px rgba(245, 183, 0, 0.45); }
+.brand span b { color: var(--gold); }
+
+.tabs { margin-left: auto; display: flex; gap: 6px; }
+.tabs a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cream);
+  border: 1px solid rgba(245, 183, 0, 0.35);
+}
+.tabs a.active,
+.tabs a:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: #1b1b1b;
+  text-decoration: none;
+}
+
+/* ---------- capa ---------- */
+
+.hero {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 16px 24px;
+  text-align: center;
+}
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  box-shadow: 0 0 0 3px var(--gold-deep), 0 10px 40px rgba(245, 183, 0, 0.35);
+}
+.hero h1 {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  margin: 20px 0 6px;
+  background: linear-gradient(180deg, #ffe27a, var(--gold) 55%, var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+.hero p { color: var(--muted); margin: 0; }
+.suits { letter-spacing: 10px; font-size: 1.1rem; margin-top: 10px; }
+.suits .r { color: var(--red); }
+
+/* ---------- conteúdo ---------- */
+
+main { max-width: 920px; margin: 0 auto; padding: 8px 16px 56px; }
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 0 24px;
+}
+.toc a {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--cream);
+}
+.toc a:hover { border-color: var(--gold); text-decoration: none; }
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(14, 77, 53, 0.92), rgba(8, 48, 31, 0.92));
+  border: 1px solid rgba(245, 183, 0, 0.35);
+  border-radius: var(--radius);
+  padding: 22px 22px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  scroll-margin-top: 80px;
+}
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+.card h2 .icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(245, 183, 0, 0.14);
+  border: 1px solid rgba(245, 183, 0, 0.45);
+  font-size: 1.15rem;
+}
+.card p { margin: 0 0 10px; }
+.card ul, .card ol { margin: 0 0 6px; padding-left: 20px; }
+.card li { margin-bottom: 8px; }
+.card li::marker { color: var(--gold); }
+
+.highlight {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(74, 46, 26, 0.95), rgba(36, 21, 11, 0.95));
+}
+
+.pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(245, 183, 0, 0.16);
+  border: 1px solid rgba(245, 183, 0, 0.45);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 800;
+  color: #1b1b1b;
+  background: linear-gradient(135deg, #ffd54a, var(--gold) 55%, var(--gold-deep));
+  box-shadow: 0 6px 18px rgba(245, 183, 0, 0.35);
+}
+.btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+.steps { counter-reset: step; list-style: none; padding: 0 !important; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 10px 12px 10px 52px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.18);
+  margin-bottom: 10px;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #1b1b1b;
+  background: linear-gradient(135deg, #ffd54a, var(--gold-deep));
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 24px 16px 40px;
+  border-top: 1px solid rgba(245, 183, 0, 0.2);
+}
+footer b { color: var(--gold); }
+
+@media (max-width: 560px) {
+  .brand span { display: none; }
+  .card { padding: 18px 16px 14px; }
+  .hero { padding-top: 32px; }
+}
